@@ -5,7 +5,7 @@ import Link from "next/link";
 function Contact() {
    
   return (
-    <div>
+    <div className={styles.contactin}>
       <div style={{display:"flex",flexDirection:"column",justifyContent:"center",alignItems:"center"}}>
         <div className={styles.form}>
           <div className={styles.contact}>

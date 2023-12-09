@@ -3,7 +3,7 @@ import style from "./page.module.css"
 function Syllabus() {
   return (
     <div>
-    <div>
+    <div className={style.syllabus}>
             <h2>Bsc.Csit Syllabus</h2>
             <div className={style.subcode}>
               <div> semester 1</div>

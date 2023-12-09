@@ -10,7 +10,7 @@ function Fotter() {
         <p>All Bsc.Csit Student</p>
        </div>
        <div>
-       Copyright © 2023 bsc.csit_nts.com
+       Copyright© 2023 fwubsccsit.vercel.app
        </div>
        <div className={style.socialmedia}>
        <div className={style.facebook}>

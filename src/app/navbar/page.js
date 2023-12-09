@@ -19,8 +19,8 @@ const MenuNav = () => {
   
 };
   function ShowMenuNav() {
-    const exist=document.querySelector("#newdiv");
-    if(exist){
+    // const exist=document.querySelector("#newdiv");
+    // if(exist){
     //   exist.innerHTML=`
     //   <div className=${style.menunavbar} id="menunav" style={{display:"flex",flexDirection:"column"}}>
     //   <Link href=${"./home"}>Home</Link>
@@ -29,17 +29,20 @@ const MenuNav = () => {
     //   <Link href="./contact">Contact</Link>
     // </div>
     //   `;
-    ReactDOM.render(<MenuNav/>,exist);
+    // ReactDOM.render(<MenuNav/>,exist);
   
-      setvisible(true);
-    }
+    // setvisible(true);
+    // }
+    
+    setvisible(true);
   }
 const HideNav=()=>{
-  const exist=document.querySelector("#newdiv");
-  if(exist){
-    exist.innerHTML=null;
-    setvisible(false);
-  }
+  // const exist=document.querySelector("#newdiv");
+  // if(exist){
+  //   exist.innerHTML=null;
+  //   setvisible(false);
+  // }
+  setvisible(false);
 }
   return (
    <div>
@@ -109,7 +112,9 @@ const HideNav=()=>{
    </div>
  
  </div>
- <div id="newdiv"></div>
+ <div id="newdiv">
+ {visible ?<MenuNav />:null}
+ </div>
    </div>
   );
 }

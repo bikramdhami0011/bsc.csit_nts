@@ -22,7 +22,7 @@ function Contact() {
              <input placeholder="Enter your email"></input>
           </div>
           <div className={styles.input}>
-            <textarea cols={30} rows={5} placeholder="Leave your message"></textarea>
+            <textarea cols={29} rows={5} placeholder="Leave your message"></textarea>
           </div>
           <div className={styles.input}>
          

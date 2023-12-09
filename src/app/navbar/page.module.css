@@ -1,0 +1,109 @@
+.nav{
+  display: flex;
+  justify-content: space-between;
+  justify-items: center;
+  align-items: center;
+  background-color: rgb(16,15,15);
+  height: 70px;
+  position:sticky;
+}
+.left{
+   display: flex;
+   flex-direction: row;
+   flex-wrap: wrap;
+   gap:10px;
+   margin:2px;
+   width: 70%;
+   padding: 10px;
+}
+.right{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap:10px;
+  margin:2px;
+  width: 200px;
+  padding: 10px;
+}
+.menu{
+  visibility: hidden;
+}
+.setsl{
+  display: flex;
+  gap: 10px;
+  
+  flex-direction: row;
+}
+@media screen and (min-width:0px) and (max-width:500px){
+  .nav{
+    top: 0px;
+    display: flex;
+    justify-content: space-between;
+    justify-items: center;
+    align-items: center;
+    height: inherit;
+    position: relative;
+    justify-content: center;
+    align-items: center;
+    border-radius: 2px;
+    background-color: rgb(100, 13, 100);
+  }
+  .left{
+    visibility: hidden;
+  }
+  .right{
+    top: 0px;
+    right: 0px;
+    position: absolute;
+    display: flex;
+    flex-direction: row-reverse ;
+    justify-content: space-between;
+    gap: 30px;
+    
+  }
+  .setsl{
+    display: flex;
+    flex-direction: row;
+    gap: 5px;
+    margin: 0px;
+    padding: 0px;
+
+  }
+  .menu{
+    gap: 2px;
+    display: flex;
+    flex-direction: column;
+    visibility: visible;
+    top: 0px;
+    left: 0px;
+    margin: 4px;
+    position: absolute;
+
+  }
+  .crmenu{
+    gap: 2px;
+    display: flex;
+    flex-direction: column;
+    visibility: visible;
+    top: 0px;
+    left: 0px;
+    margin: 4px;
+    position: absolute;
+    rotate: 45deg;
+    margin: 10px;
+  }
+  .crmenu .secondcross{
+    position: absolute;
+    rotate: 80deg;
+    justify-self: center;
+    
+
+  }
+  .shownav{
+    display: flex;
+    position: fixed;
+    flex-direction: column;
+
+  }
+  
+}

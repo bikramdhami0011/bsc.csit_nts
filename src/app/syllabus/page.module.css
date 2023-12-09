@@ -1,0 +1,18 @@
+.subcode{
+    display:grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 10px 0px;
+    padding: 10px;
+    grid-template-rows: 1fr 1fr 1fr;
+    row-gap: 10px;
+    column-gap: 10px;
+    
+}
+.subcode>div{
+  height: 150px;
+  border-radius: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(26, 29, 29);
+}

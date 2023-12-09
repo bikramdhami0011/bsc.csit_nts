@@ -1,0 +1,52 @@
+.footer{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+    background-color: rgb(16, 15, 15);
+    padding: 20px;
+    margin-top: 30px;
+}
+
+.socialmedia{
+    height: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+}
+.socialmedia >div{
+
+    height: 20px;
+    width: 20px;
+}
+.socialmedia> div:nth-child(1):hover{
+    background-color: blue;
+     height: 20px;
+    border-radius: 3px;
+}
+.socialmedia> div:nth-child(2):hover{
+    background-color:rgb(234, 54, 207);
+    height: 20px;
+   
+    border-radius: 3px;
+}
+.socialmedia> div:nth-child(3):hover{
+    background-color:rgb(27, 186, 239);
+    height: 20px;
+   
+    border-radius: 3px;
+}
+.socialmedia> div:nth-child(4):hover{
+   
+    height: 20px;
+   
+    border-radius: 3px;
+}
+.imgl{
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     gap: 10px;
+}

@@ -25,10 +25,19 @@ function SignUp() {
         <div className={style.inputdiv}>
           <div>Password</div>
           <input className={style.input} placeholder="Enter your password"></input>
-          <div style={{ display: "flex", alignSelf: "flex-end" }}>
-            Forget Password?
-          </div>
+          
         </div>
+        <div className={style.inputdiv}>
+          <div>Confirm Password</div>
+          <input className={style.input} placeholder="Enter your password"></input>
+        </div>
+        <div className={style.inputdiv}>
+          
+        <button
+          className={style.input}
+          style={{font:"28px",fontFamily:"800",backgroundColor:"rgb(0,0,46)",borderRadius:"4px",borderColor:"2px solid blue",padding:"10px",outline:"none",border:"none"}}
+        >Submit</button>
+      </div>
         <div className={style.orline}>
           <div className={style.line}></div>
           <div> OR LOGIN WITH EMAIL</div>

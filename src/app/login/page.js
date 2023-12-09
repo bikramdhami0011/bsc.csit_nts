@@ -32,8 +32,8 @@ function LogIn() {
         <div className={style.inputdiv}>
           
           <button
-            className={style.input}
-            style={{font:"28px",fontFamily:"800",backgroundColor:"rgb(0,0,46)",borderRadius:"4px",borderColor:"2px solid blue",padding:"10px",border:"none"}}
+            className={[style.input,style.btnhover]}
+            style={{font:"28px",fontFamily:"800",backgroundColor:"rgb(0,0,46)",borderRadius:"4px",borderColor:"2px solid blue",padding:"10px",border:"none",cursor:"pointer"}}
           >Submit</button>
         </div>
         <div className={style.orline}>

@@ -7,7 +7,6 @@ import Link from "next/link";
 function Navbar() {
 const [visible,setvisible]=useState(false);
 const MenuNav = () => {
-
   return (
     <div>
     <div className={style.menunavbar} id="menunav" style={{ display: "flex", flexDirection: "column" }}>

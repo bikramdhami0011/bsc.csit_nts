@@ -1,11 +1,11 @@
 "use client";
-import ReactDOM from "react-dom"; 
+
 // import React, { useEffect, useState } from "react";
-import * as React from "react"; 
+import  {useState} from "react"; 
 import style from "./page.module.css";
 import Link from "next/link";
 function Navbar() {
-const [visible,setvisible]=React.useState(false);
+const [visible,setvisible]=useState(false);
 const MenuNav = () => {
 
   return (
@@ -19,29 +19,9 @@ const MenuNav = () => {
   
 };
   function ShowMenuNav() {
-    // const exist=document.querySelector("#newdiv");
-    // if(exist){
-    //   exist.innerHTML=`
-    //   <div className=${style.menunavbar} id="menunav" style={{display:"flex",flexDirection:"column"}}>
-    //   <Link href=${"./home"}>Home</Link>
-    //   <Link href="./syllabus">Syllabus</Link>
-    //   <Link href="./about">About</Link>
-    //   <Link href="./contact">Contact</Link>
-    // </div>
-    //   `;
-    // ReactDOM.render(<MenuNav/>,exist);
-  
-    // setvisible(true);
-    // }
-    
     setvisible(true);
   }
 const HideNav=()=>{
-  // const exist=document.querySelector("#newdiv");
-  // if(exist){
-  //   exist.innerHTML=null;
-  //   setvisible(false);
-  // }
   setvisible(false);
 }
   return (

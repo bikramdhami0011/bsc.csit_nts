@@ -103,8 +103,8 @@ const HideNav=()=>{
 
    <div className={style.right}>
      <div className={style.setsl}>
-       <div className={style.signup}>Sign Up</div>
-       <div className={style.login}>Log In</div>
+       <Link href={"/signup"} className={style.signup}>Sign Up</Link>
+       <Link href={"/login"} className={style.login}>Log In</Link>
      </div>
    </div>
  

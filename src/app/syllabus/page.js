@@ -1,6 +1,15 @@
 import React from 'react'
 import style from "./page.module.css"
 function Syllabus() {
+  const FetchData=async()=>{
+       const data=await fetch("http://localhost:3000/router",{
+        method:"GET",
+       });
+       
+      
+       console.log("this is result");
+  }
+  FetchData();
   return (
     <div>
     <div className={style.syllabus}>

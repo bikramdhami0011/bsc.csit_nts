@@ -1,5 +1,6 @@
 import React from "react";
 import style from "./page.module.css";
+import Link from "next/link";
 function Home() {
   return (
     <div>
@@ -17,30 +18,18 @@ function Home() {
             <div>
               <h2>Bsc.Csit Subject Code</h2>
               <div className={style.subcode}>
-                <div> semester 1</div>
-                <div> semester 2</div>
-                <div> semester 3</div>
-                <div> semester 4</div>
-                <div> semester 5</div>
-                <div> semester 6</div>
-                <div> semester 7</div>
-                <div> semester 8</div>
+                <Link className={style.sem} href="/home/subcode/1" style={{cursor:"pointer"}}> semester 1</Link>
+                <Link className={style.sem} href="/home/subcode/2" style={{cursor:"pointer"}}> semester 2</Link>
+                <Link className={style.sem} href="/home/subcode/3" style={{cursor:"pointer"}}> semester 3</Link>
+                <Link className={style.sem} href="/home/subcode/4" style={{cursor:"pointer"}}> semester 4</Link>
+                <Link className={style.sem} href="/home/subcode/5" style={{cursor:"pointer"}}> semester 5</Link>
+                <Link className={style.sem} href="/home/subcode/6" style={{cursor:"pointer"}}> semester 6</Link>
+                <Link className={style.sem} href="/home/subcode/7" style={{cursor:"pointer"}}> semester 7</Link>
+                <Link className={style.sem} href="/home/subcode/8" style={{cursor:"pointer"}}> semester 8</Link>
               </div>
             </div>
 
-            <div>
-              <h2>Bsc.Csit Syllabus</h2>
-              <div className={style.subcode}>
-                <div> semester 1</div>
-                <div> semester 2</div>
-                <div> semester 3</div>
-                <div> semester 4</div>
-                <div> semester 5</div>
-                <div> semester 6</div>
-                <div> semester 7</div>
-                <div> semester 8</div>
-              </div>
-            </div>
+         
           </div>
         </main>
       </div>

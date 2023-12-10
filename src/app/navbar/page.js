@@ -29,10 +29,10 @@ const HideNav=()=>{
    <div>
    <div className={style.nav} id="navbar">
    <div className={[style.left]} id="menunav">
-     <Link href="./home">Home</Link>
-     <Link href="./syllabus">Syllabus</Link>
-     <Link href="./about">About</Link>
-     <Link href="./contact">Contact</Link>
+     <Link href="../../home">Home</Link>
+     <Link href="../../syllabus">Syllabus</Link>
+     <Link href="../../about">About</Link>
+     <Link href="../../contact">Contact</Link>
    </div>
   {
     visible?  <div className={style.crmenu} onClick={()=>{

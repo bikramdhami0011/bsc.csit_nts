@@ -1,5 +1,5 @@
 
-import Clinet from '@/app/client/Client';
+import Clinet from '@/app/client/page';
 import React from 'react'
 import style from "./page.module.css";
 function AllSemester({params}) {

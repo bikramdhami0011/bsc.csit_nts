@@ -2,6 +2,7 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import style from "./page.module.css"
+import Link from 'next/link';
 function Clinet(props) {
 
    var key=props.values;
@@ -18,6 +19,7 @@ function Clinet(props) {
           thirdsub:"Calculus and Analytical",
           fourthsub:"Electronic Principles TH",
           fifthsub:"Programming Fundamentals and C Programming",
+          id:"1sem"
         }]
         
       setvalue(data1);
@@ -29,6 +31,7 @@ function Clinet(props) {
             thirdsub:"Linear Algebra",
             fourthsub:"Mechanics and Electrodynamics TH",
             fifthsub:"Microprocessor System",
+            id:"2sem"
           }]
           setvalue(data2)
         break;
@@ -39,7 +42,8 @@ function Clinet(props) {
             thirdsub:"Introduction to Management",
             fourthsub:"Object Oriented Programming",
             fifthsub:"Operating System",
-            sixthsub:"Statistic and Probability"
+            sixthsub:"Statistic and Probability",
+            id:"3sem"
           }]
           setvalue(data3);
         break;
@@ -50,7 +54,8 @@ function Clinet(props) {
             thirdsub:"Database Management System",
             fourthsub:"Numerical Methods",
             fifthsub:"System Analysis and Design",
-            sixthsub:"Theory of Computation"
+            sixthsub:"Theory of Computation",
+            id:"4sem"
           }]
           setvalue(data4)
         break;
@@ -61,7 +66,8 @@ function Clinet(props) {
             thirdsub:"Compiler Design",
             fourthsub:"Simulation and Modeling",
             fifthsub:"Graphics and Visual Computing",
-            sixthsub:"Web Technology I"
+            sixthsub:"Web Technology I",
+            id:"5sem"
           }]
           setvalue(data5)
         break;
@@ -72,7 +78,8 @@ function Clinet(props) {
             thirdsub:"Research Methodology for Computer Science",
             fourthsub:"Software Engineering",
             fifthsub:"Web Technology II",
-            sixthsub:"Minor Project I"
+            sixthsub:"Minor Project I",
+            id:"6sem"
           }]
           setvalue(data6)
         break;
@@ -83,7 +90,8 @@ function Clinet(props) {
             thirdsub:"Object Oriented Analysis and Design",
             fourthsub:"Minor Project II",
             fifthsub:"Database Administration",
-            sixthsub:"Data Mining and Warehousing"
+            sixthsub:"Data Mining and Warehousing",
+            id:"7sem"
           }]
           setvalue(data7)
         break;
@@ -94,7 +102,7 @@ function Clinet(props) {
             thirdsub:"Advanced Database Design",
             fourthsub:"Distributed Database Management System",
             fifthsub:"E-Business and E-overnance",
-            
+            id:"8sem"
           }]
           setvalue(data8)
         break;
@@ -107,28 +115,32 @@ function Clinet(props) {
 
   
   return (
-   value&& value.length>0 &&<div>
+   value&& value.length>0 &&
+   <div>
     {
      value.map((item,index)=>(
+   
+     
       <div key={index} className={style.container}>
-      <div >
+     
+      <Link href={`../../client/sub/1/${item.id}`} className={style.link} >
       {index+1}.{item.firstsub}
-     </div>
-     <div>
+     </Link>
+     <Link href={`../../client/sub/2/${item.id}`} className={style.link}>
      {index+2}.{item.secondsub}
-   </div>
-   <div>
+   </Link>
+   <Link href={`../../client/sub/3/${item.id}`} className={style.link}>
       {index+3}.{item.thirdsub}
-    </div>
-    <div>
+    </Link>
+    <Link href={`../../client/sub/4/${item.id}`} className={style.link}>
       {index+4}.{item.fourthsub}
-    </div>
-    <div>
+    </Link>
+    <Link href={`../../client/sub/5/${item.id}`} className={style.link}>
       {index+5}.{item.fifthsub}
-    </div>
-    <div>
+    </Link>
+    <Link href={`../../client/sub/6/${item.id}`} className={style.link}>
       {index+6}.{item.sixthsub ?item.sixthsub:"No more subject"}
-    </div>
+    </Link>
    
       </div>
      ))

@@ -2,15 +2,10 @@
     height:100%;
    width: 100%;
    position: relative;
-   z-index: 0;
+   
 }
 .imgcon{
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
-   
-    z-index: 0;
+    
 }
 @media screen and (min-width:500px)and (max-width:10000px){
     .image{
@@ -19,7 +14,7 @@
        border-radius: 20px;
        border-color: 2px solid rgb(43, 42, 42);
        border-width: 10px;
-      z-index: 0;
+   
     }
     .imgcon{
         display: flex;

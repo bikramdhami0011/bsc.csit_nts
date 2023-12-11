@@ -11,6 +11,7 @@
   background-color: transparent;
   margin-bottom: 100px;
   position: sticky;
+  z-index: 1;
 }
 .default{
    display: flex;

@@ -1,7 +1,7 @@
 import React from 'react'
 
-function DynamicSub(prosp) {
-    console.log(prosp);
+function DynamicSub(props) {
+    console.log(props);
     
   return (
     <div>DynamicSub</div>

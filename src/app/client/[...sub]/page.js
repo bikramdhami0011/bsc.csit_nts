@@ -1,6 +1,6 @@
 "use client"
 import React, { useEffect, useState } from 'react'
-
+import style from "./page.modul.css"
 function DynamicSub(props) {
     console.log(props.params.sub);
     const arr=props.params.sub;
@@ -57,14 +57,14 @@ useEffect(() => {
 
     
   return (
-    <div >
+    <div className={style.container} style={{display:"flex",flexDirection:"column",alignItems:"center",justifyContent:"center", height:"100%",width:"100%"}}>
     {
      invalid ? <div> 
        <h1> No More Subject !!!</h1>
         {
-          imgs &&<img src={`/${imgs}.png`} height={200} width={300}></img>
+          imgs &&<img className={style.img} src={`/${imgs}.png`} height={screen.height} width={screen.width}></img>
         }
-     </div>:    <embed src={value} height={600} width={400}></embed>
+     </div>:  <embed src={value} height={screen.height} width={screen.width}></embed>
     }
       
     </div>

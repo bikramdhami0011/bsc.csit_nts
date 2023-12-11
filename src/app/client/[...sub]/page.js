@@ -1,6 +1,8 @@
 "use client"
 import React, { useEffect, useState } from 'react'
 import style from "./page.modul.css"
+
+
 function DynamicSub(props) {
     console.log(props.params.sub);
     const arr=props.params.sub;
@@ -64,7 +66,8 @@ useEffect(() => {
         {
           imgs &&<img className={style.img} src={`/${imgs}.png`} height={screen.height} width={screen.width}></img>
         }
-     </div>:  <embed src={value} height={screen.height} width={screen.width}></embed>
+   </div>: <iframe src={value} height={screen.height} width={screen.width}></iframe>
+     
     }
       
     </div>
@@ -72,3 +75,4 @@ useEffect(() => {
 }
 
 export default DynamicSub
+

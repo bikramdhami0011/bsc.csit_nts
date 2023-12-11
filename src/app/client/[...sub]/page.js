@@ -1,10 +1,41 @@
-import React from 'react'
+"use client"
+import React, { useEffect, useState } from 'react'
 
 function DynamicSub(props) {
-    console.log(props);
+    console.log(props.params.sub);
+    const arr=props.params.sub;
+   
+const [value, setvalue]=useState();
+console.log(arr);
+useEffect(() => {
+  const setsem = arr[2];
+  let path;
+
+  switch (setsem) {
+      case "1sem":
+      case "2sem":
+      case "3sem":
+      case "4sem":
+      case "5sem":
+      case "6sem":
+      case "7sem":
+      case "8sem":
+          path = `/${setsem}/${arr[1]}${arr[0]}/${arr[1]}.pdf`;
+          break;
+      default:
+          // Handle the default case if setsem is none of the above
+          break;
+  }
+console.log("this is path",path)
+  setvalue(path);
+}, [arr]);
+
     
   return (
-    <div>DynamicSub</div>
+    <div >
+    <embed src={value} height={600} width={400}></embed>
+      
+    </div>
   )
 }
 

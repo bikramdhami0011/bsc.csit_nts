@@ -9,9 +9,7 @@ function SubCode(params) {
   return (
     <div>
           <div className={style.imgcon}>
-
-                <Image src={`/${setcode}.png`} className={style.image} height={500} width={600} Style={{}}/>
-              
+                <Image src={`/${setcode}.png`} className={style.image} height={500} width={600} Style={{}}/>             
           </div>
     </div>
 

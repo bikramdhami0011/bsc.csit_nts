@@ -1,8 +1,18 @@
-import React from 'react'
 
-function AllSemester() {
+import Clinet from '@/app/client/Client';
+import React from 'react'
+import style from "./page.module.css";
+function AllSemester({params}) {
+
+  const key=params.allsemester[1];
+
   return (
-    <div>AllSemester</div>
+   <div>
+      <div className={style.container}>
+         <h2> All Subject !!!</h2>
+        <Clinet values={key}></Clinet>
+      </div> 
+   </div>
   )
 }
 

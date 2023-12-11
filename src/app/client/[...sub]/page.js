@@ -57,7 +57,7 @@ useEffect(() => {
      invalid ? <div> 
        <h1> No More Subject !!!</h1>
         {
-          imgs &&  <img src={`/${imgs}.png`} height={200} width={300}></img>
+          imgs &&<img src={`/${imgs}.png`} height={200} width={300}></img>
         }
      </div>:    <embed src={value} height={600} width={400}></embed>
     }

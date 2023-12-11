@@ -40,8 +40,13 @@ useEffect(() => {
       case "6sem":
       case "7sem":
       case "8sem":
-          path = `/${setsem}/${arr[1]}${arr[0]}/${arr[1]}.pdf`;
-          break;
+        if(path==`/${setsem}/${arr[1]}${arr[0]}/6.pdf`){
+          if(arr[2]=="8sem"){
+           setinvalid(true);
+          }
+       }
+        break;
+         
       default:
           // Handle the default case if setsem is none of the above
           break;

@@ -20,7 +20,7 @@ function SignUp() {
             "Content-Type":"application/json",
           },
 
-          body:JSON.stringify({ email:email,password: password }),
+          body:JSON.stringify({ email:email,password: password,usersignup:true }),
         });
         const resdata = await send.json();
         console.log(resdata);

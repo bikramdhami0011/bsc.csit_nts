@@ -1,10 +1,22 @@
 "use client";
 
 // import React, { useEffect, useState } from "react";
-import  {useState} from "react"; 
+import  {useEffect, useState} from "react"; 
 import style from "./page.module.css";
 import Link from "next/link";
 function Navbar() {
+  const [show,setshow]=useState();
+//  useEffect(()=>{
+//   const FetchData=async()=>{
+//       const getdata=await fetch("/api",{
+//         method:"GET"
+//       });
+//       const user=await getdata.json()
+//       console.log(user);
+      
+//   }
+//   FetchData();
+//  },[])
 const [visible,setvisible]=useState(false);
 const MenuNav = () => {
   return (

@@ -27,6 +27,9 @@ function LogIn() {
         const resdata = await send.json();
         console.log(resdata);
         alert(resdata.message);
+        if(resdata.message=="login success !!!"){
+           router.push("./home");
+        }
       }else{
         alert("Please fill Up !!!")
       }

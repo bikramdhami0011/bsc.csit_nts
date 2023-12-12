@@ -49,6 +49,7 @@
 import { NextResponse } from "next/server";
 import userDb from "../../MonDb/userModel";
 import bcrypt from "bcrypt";
+import { redirect } from "next/navigation";
 
 export async function GET(request) {
   return NextResponse.json({ message: "this is login" });
@@ -76,4 +77,11 @@ export async function POST(request) {
     // User not found
     return NextResponse.json({message:"user not found"});
   }
+}
+export async function PUT(request) {
+  const reqdata = await request.json();
+  const salt=await bcrypt.genSalt(10);
+const hash=await bcrypt.hash(reqdata.password,salt);
+  const userdata = await userDb.findOneAndUpdate({email:reqdata.email},{$set:{password:hash}});
+ return NextResponse.json({message:"Password Update Successfull !!!"});
 }

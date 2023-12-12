@@ -28,3 +28,29 @@ const hash=await bcrypt.hash(reqdata.password,salt);
 
   return NextResponse.json(newdata);
 }
+
+//reset password 
+export async function PUT(request) {
+  const reqdata = await request.json();
+  const userdata = await userDb.findOne({ email: reqdata.email });
+  console.log(userdata);
+
+  if (userdata) {
+    const hash = userdata.password; // Use the hashed password from the database
+
+    const comp = await bcrypt.compare(reqdata.password, hash);
+    console.log(comp);
+
+    if (comp==true) {
+      // Passwords match, user is authenticated
+
+      return NextResponse.json({message:true});
+    } else {
+      // Passwords do not match
+      return NextResponse.json({message:"Incorrect password"});
+    }
+  } else {
+    // User not found
+    return NextResponse.json({message:"user not found"});
+}
+}

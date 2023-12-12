@@ -18,15 +18,16 @@ export async function POST(request) {
   const reqdata=await request.json();
 const salt=await bcrypt.genSalt(10);
 const hash=await bcrypt.hash(reqdata.password,salt);
-
-  console.log(hash)
   const user= new userDb({email:reqdata.email,password:hash});
   const newdata=await user.save();
 
- 
-  console.log("this is console",reqdata);
+ if(newdata){
+  return NextResponse.json({message:"Sign Up successfully !!!"});
+ }else{
+  return NextResponse.json({message:"Enternal Problem "});
+ }
 
-  return NextResponse.json(newdata);
+ 
 }
 
 //reset password 

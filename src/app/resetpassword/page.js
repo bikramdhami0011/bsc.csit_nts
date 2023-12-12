@@ -1,13 +1,14 @@
 "use client";
 import React, { useState } from "react";
 import style from "./page.module.css";
+import { useRouter } from "next/navigation";
 // import bcrypt from "bcrypt";
 function SignUp() {
   const [img, setimg] = useState(true);
   const [cp, setcp] = useState("");
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
-  
+  const router=useRouter();
   const sendData = async () => {
     try {
       if ( cp && email && password) {
@@ -26,6 +27,9 @@ function SignUp() {
         console.log(resdata);
         if(resdata){
           alert(resdata.message)
+          if(resdata.message=="Password Update Successfull !!!"){
+             router.push("./login")
+          }
         }else{
           alert("Already exist ")
         }

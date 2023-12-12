@@ -79,9 +79,18 @@ export async function POST(request) {
   }
 }
 export async function PUT(request) {
+try {
   const reqdata = await request.json();
   const salt=await bcrypt.genSalt(10);
 const hash=await bcrypt.hash(reqdata.password,salt);
   const userdata = await userDb.findOneAndUpdate({email:reqdata.email},{$set:{password:hash}});
- return NextResponse.json({message:"Password Update Successfull !!!"});
+  if(userdata){
+    return NextResponse.json({message:"Password Update Successfull !!!"});
+  }else{
+    return NextResponse.json({message:"User Not Found "});
+  }
+} catch (error) {
+  
+}
+
 }

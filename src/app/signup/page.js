@@ -2,7 +2,7 @@
 import React, { useState } from "react";
 import style from "./page.module.css";
 import { useRouter } from "next/navigation";
-// import bcrypt from "bcrypt";
+
 function SignUp() {
   const [img, setimg] = useState(true);
   const [cp, setcp] = useState("");
@@ -12,8 +12,7 @@ function SignUp() {
   const sendData = async () => {
     try {
       if ( cp && email && password) {
-        // const salt=await bcrypt.genSalt(10);
-        // const hash=await bcrypt.hash(password,salt);
+
         console.log(email,password)
         const send = await fetch("/api", {
           method: "POST",

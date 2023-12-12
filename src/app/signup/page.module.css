@@ -56,13 +56,14 @@
     width: 25px;
 }
 .google{
-    background-color: white;
+    background-color: rgb(232, 216, 216);
     color: black;
     display: flex;
     flex-direction: row;
     align-items: center;
     justify-content: center;
     padding: 6px;
+    
 }
 .conshow{
     display: flex;

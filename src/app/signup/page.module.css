@@ -18,7 +18,7 @@
 .imgt{
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: flex-start;
     align-items: center;
 
 
@@ -39,6 +39,8 @@
     flex-direction: column;
     gap: 1px;
     padding: 5px;
+    justify-content: center;
+    align-items: center;
 }
 .orline{
     display: flex;
@@ -61,4 +63,25 @@
     align-items: center;
     justify-content: center;
     padding: 6px;
+}
+.conshow{
+    display: flex;
+    justify-content: space-between;
+    flex-direction: row-reverse;
+
+      
+}
+.show{
+    display: flex;
+    justify-content: flex-end;
+    position: absolute;
+    font-size: 12px;
+    margin-top: 3px;
+    padding: 3px;
+    cursor: pointer;
+}
+.settext{
+   display: flex;
+   align-self: start;
+   margin-left: 10px;
 }

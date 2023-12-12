@@ -1,6 +1,56 @@
-import React from 'react'
+
+"use client";
+import React, { useState } from "react";
 import style from "./page.module.css";
+
 function LogIn() {
+  const [img, setimg] = useState(true);
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  const ResetPassword=async()=>{
+    try {
+      if (email && password) {
+        console.log(email,password)
+        const send = await fetch("/api/login", {
+          method: "PUT",
+          headers: {
+            "Content-Type":"application/json",
+          },
+
+          body:JSON.stringify({ email:email,password: password }),
+        });
+        const resdata = await send.json();
+        console.log(resdata);
+        alert(resdata.message);
+      }else{
+        alert("filled Up both for Reset password !!!")
+      }
+    } catch (error) {
+     console.log(error);
+    }
+  }
+
+  const sendData = async () => {
+    try {
+      if (email && password) {
+        console.log(email,password)
+        const send = await fetch("/api/login", {
+          method: "POST",
+          headers: {
+            "Content-Type":"application/json",
+          },
+
+          body:JSON.stringify({ email:email,password: password }),
+        });
+        const resdata = await send.json();
+        console.log(resdata);
+        alert(resdata.message);
+      }
+    } catch (error) {
+     console.log(error);
+    }
+  };
+
   return (
     <div className={style.container}>
       <div className={style.conreal}>
@@ -16,33 +66,95 @@ function LogIn() {
           <div> Welcome Students !!!</div>
         </div>
         <div className={style.inputdiv}>
-          <div>Email Address</div>
+          <div className={style.settext}>Email Address</div>
           <input
+            type="email"
             className={style.input}
             placeholder="Enter your email "
+            onChange={(e) => {
+              setemail(e.target.value);
+            }}
           ></input>
         </div>
         <div className={style.inputdiv}>
-          <div>Password</div>
-          <input className={style.input} placeholder='Enter your password'></input>
-          <div style={{ display: "flex", alignSelf: "flex-end" }}>
-            Forget Password?
-          </div>
+          <div className={style.settext}>Password</div>
+          <div className={style.conshow}>
+          {img ? (
+            <input
+              type="password"
+              className={style.input}
+              placeholder="Enter your password"
+              onChange={(e) => {
+                setpassword(e.target.value);
+              }}
+              hidden
+            ></input>
+          ) : (
+            <input
+              type="text"
+              className={style.input}
+              placeholder="Enter your password"
+              onChange={(e) => {
+                setpassword(e.target.value);
+              }}
+              hidden
+            ></input>
+          )}
+          {img ? (
+            <div
+              className={style.show}
+              onClick={() => {
+                setimg(false);
+              }}
+            >
+              show
+            </div>
+          ) : (
+            <div
+              className={style.show}
+              onClick={() => {
+                setimg(true);
+              }}
+            >
+              hide
+            </div>
+          )}
         </div>
+        <div className={style.fp} onClick={()=>{
+          ResetPassword()
+        }}>Forget Password ?</div>
+        </div>
+     
         <div className={style.inputdiv}>
-          
           <button
-            className={[style.input,style.btnhover]}
-            style={{font:"28px",fontFamily:"800",backgroundColor:"rgb(0,0,46)",borderRadius:"4px",borderColor:"2px solid blue",padding:"10px",border:"none",cursor:"pointer"}}
-          >Submit</button>
+            className={style.input}
+            onClick={() => {
+              sendData();
+            }}
+            style={{
+               
+              font: "28px",
+              fontFamily: "800",
+              backgroundColor: "rgb(0,0,46)",
+              borderRadius: "4px",
+              borderColor: "2px solid blue",
+              padding: "10px",
+              outline: "none",
+              border: "none",
+              cursor: "pointer",
+              width:"92%"
+            }}
+          >
+            Submit
+          </button>
         </div>
         <div className={style.orline}>
           <div className={style.line}></div>
           <div> OR LOGIN WITH EMAIL</div>
           <div className={style.line}></div>
         </div>
-        <div className={style.google} style={{cursor:"pointer"}}>
-          <a style={{height:"20px", width:"20px"}}>
+        <div className={style.google} style={{ cursor: "pointer" }}>
+          <a style={{ height: "20px", width: "20px" }}>
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +189,7 @@ function LogIn() {
         <div></div>
       </div>
     </div>
-  )
+  );
 }
 
-export default LogIn
+export default LogIn;

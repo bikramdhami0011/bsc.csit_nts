@@ -1,6 +1,42 @@
-import React from "react";
+"use client";
+import React, { useState } from "react";
 import style from "./page.module.css";
+// import bcrypt from "bcrypt";
 function SignUp() {
+  const [img, setimg] = useState(true);
+  const [cp, setcp] = useState("");
+  const [email, setemail] = useState("");
+  const [password, setpassword] = useState("");
+  
+  const sendData = async () => {
+    try {
+      if ( cp && email && password) {
+        // const salt=await bcrypt.genSalt(10);
+        // const hash=await bcrypt.hash(password,salt);
+        console.log(email,password)
+        const send = await fetch("/api", {
+          method: "POST",
+          headers: {
+            "Content-Type":"application/json",
+          },
+
+          body:JSON.stringify({ email:email,password: password }),
+        });
+        const resdata = await send.json();
+        console.log(resdata);
+        if(resdata){
+          alert("You are Sign Up !!! Thanks !!!")
+        }else{
+          alert("Already exist ")
+        }
+      } else {
+        alert("Please fill Up!!!");
+      }
+    } catch (error) {
+     alert(" Already exist or Internal error");
+    }
+  };
+
   return (
     <div className={style.container}>
       <div className={style.conreal}>
@@ -16,35 +52,136 @@ function SignUp() {
           <div> Please Sign Up !!!</div>
         </div>
         <div className={style.inputdiv}>
-          <div>Email Address</div>
+          <div className={style.settext}>Email Address</div>
           <input
+            type="email"
             className={style.input}
             placeholder="Enter your email "
+            onChange={(e) => {
+              setemail(e.target.value);
+            }}
           ></input>
         </div>
         <div className={style.inputdiv}>
-          <div>Password</div>
-          <input className={style.input} placeholder="Enter your password"></input>
-          
+          <div className={style.settext}>Password</div>
+          <div className={style.conshow}>
+          {img ? (
+            <input
+              type="password"
+              className={style.input}
+              placeholder="Enter your password"
+              onChange={(e) => {
+                setpassword(e.target.value);
+              }}
+              hidden
+            ></input>
+          ) : (
+            <input
+              type="text"
+              className={style.input}
+              placeholder="Enter your password"
+              onChange={(e) => {
+                setpassword(e.target.value);
+              }}
+              hidden
+            ></input>
+          )}
+          {img ? (
+            <div
+              className={style.show}
+              onClick={() => {
+                setimg(false);
+              }}
+            >
+              show
+            </div>
+          ) : (
+            <div
+              className={style.show}
+              onClick={() => {
+                setimg(true);
+              }}
+            >
+              hide
+            </div>
+          )}
+        </div>
         </div>
         <div className={style.inputdiv}>
-          <div>Confirm Password</div>
-          <input className={style.input} placeholder="Enter your password"></input>
+          <div className={style.settext}>Confirm Password</div>
+          <div className={style.conshow}>
+            {img ? (
+              <input
+                type="password"
+                className={style.input}
+                placeholder="Enter your password"
+                onChange={(e) => {
+                  setcp(e.target.value);
+                }}
+                hidden
+              ></input>
+            ) : (
+              <input
+                type="text"
+                className={style.input}
+                placeholder="Enter your password"
+                onChange={(e) => {
+                  setcp(e.target.value);
+                }}
+                hidden
+              ></input>
+            )}
+            {img ? (
+              <div
+                className={style.show}
+                onClick={() => {
+                  setimg(false);
+                }}
+              >
+                show
+              </div>
+            ) : (
+              <div
+                className={style.show}
+                onClick={() => {
+                  setimg(true);
+                }}
+              >
+                hide
+              </div>
+            )}
+          </div>
         </div>
         <div className={style.inputdiv}>
-          
-        <button
-          className={style.input}
-          style={{font:"28px",fontFamily:"800",backgroundColor:"rgb(0,0,46)",borderRadius:"4px",borderColor:"2px solid blue",padding:"10px",outline:"none",border:"none",cursor:"pointer"}}
-        >Submit</button>
-      </div>
+          <button
+            className={style.input}
+            onClick={() => {
+              sendData();
+            }}
+            style={{
+               
+              font: "28px",
+              fontFamily: "800",
+              backgroundColor: "rgb(0,0,46)",
+              borderRadius: "4px",
+              borderColor: "2px solid blue",
+              padding: "10px",
+              outline: "none",
+              border: "none",
+              cursor: "pointer",
+              width:"92%"
+            }}
+          >
+            Submit
+          </button>
+        </div>
         <div className={style.orline}>
           <div className={style.line}></div>
           <div> OR LOGIN WITH EMAIL</div>
           <div className={style.line}></div>
         </div>
-        <div className={style.google} style={{cursor:"pointer"}}>
-          <a style={{height:"20px", width:"20px"}}>
+        <div className={style.google} style={{ cursor: "pointer" }}>
+          <a style={{ height: "20px", width: "20px" }}>
             <svg
               version="1.1"
               xmlns="http://www.w3.org/2000/svg"

@@ -10,6 +10,7 @@ const MenuNav = () => {
   return (
     <div>
     <div className={style.menunavbar} id="menunav" style={{ display: "flex", flexDirection: "column" }}>
+       
       <Link href="/home">Home</Link>
       <Link href="/syllabus">Syllabus</Link>
       <Link href="/about">About</Link>

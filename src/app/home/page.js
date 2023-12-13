@@ -1,14 +1,23 @@
 "use client"
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import style from "./page.module.css";
 import Link from "next/link";
 import { useSession } from "next-auth/react";
 function Home() {
   let session=useSession();
- 
- const BgCh=()=>{
-   return "#"+Math.floor(Math.random()*10661110234).toString(16);
- }
+ const [color,setcolor]=useState("blue");
+
+  const BgCh=()=>{
+    return "#"+Math.floor(Math.random()*10661110234).toString(16);
+  }
+
+ setInterval(()=>{
+  const cl=BgCh() 
+  setcolor(cl)
+ },5000);
+//  
+
+
  
    
   return (
@@ -26,7 +35,7 @@ function Home() {
           <div className="show">
             <div>
                {
-                session.status=="authenticated"? <marquee > <h1 id="h1" style={{color:`${BgCh()}`}}>Welcome  {session.data.user.name} </h1></marquee>:null
+                session.status=="authenticated"? <marquee > <h1 id="h1" style={{color:`${color}`}}>Welcome  {session.data.user.name} </h1></marquee>:null
                }
               <h2>Bsc.Csit Subject Code</h2>
               <div className={style.subcode}>

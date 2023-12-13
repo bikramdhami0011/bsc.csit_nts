@@ -10,7 +10,7 @@ function Home() {
    return "#"+Math.floor(Math.random()*10661110234).toString(16);
  }
  
-   setInterval(BgCh,2000)
+   
   return (
     <div>
       <div className={style.sethome}>

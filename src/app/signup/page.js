@@ -2,8 +2,11 @@
 import React, { useState } from "react";
 import style from "./page.module.css";
 import { useRouter } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
 
 function SignUp() {
+  const session=useSession();
+  console.log(session);
   const [img, setimg] = useState(true);
   const [cp, setcp] = useState("");
   const [email, setemail] = useState("");
@@ -27,6 +30,8 @@ function SignUp() {
         if(resdata){
             if(resdata.message=="Sign Up successfully !!!"){
               router.push("./login")
+            }else{
+              alert(resdata.message);
             }
         }else{
           alert("Already exist ")
@@ -35,7 +40,7 @@ function SignUp() {
         alert("Please fill Up!!!");
       }
     } catch (error) {
-     alert(" Already exist or Internal error");
+     alert(" Internal error");
     }
   };
 
@@ -182,7 +187,9 @@ function SignUp() {
           <div> OR LOGIN WITH EMAIL</div>
           <div className={style.line}></div>
         </div>
-        <div className={style.google} style={{ cursor: "pointer" }}>
+        <div className={style.google} style={{ cursor: "pointer" }} onClick={()=>{
+         signIn("google");
+        }}>
           <a style={{ height: "20px", width: "20px" }}>
             <svg
               version="1.1"

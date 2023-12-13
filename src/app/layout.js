@@ -7,6 +7,7 @@ import Fotter from './fotter/page'
 import style from "./page.module.css"
 import { Provider } from 'react-redux'
 import store from './Redux/Store'
+import AuthProvider from '@/component/Authprovider/AuthProvider'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -20,17 +21,20 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
     
-
-   
+  
+    <AuthProvider>
       <body className={inter.className}>
       <div className={style.headerofnav}>
+
       <Navbar></Navbar>
       </div>
+      
       {children}
        <footer>
          <Fotter></Fotter>
        </footer>
       </body>
+      </AuthProvider>
     </html>
   )
 }

@@ -28,7 +28,11 @@ function LogIn() {
         console.log(resdata);
         alert(resdata.message);
         if(resdata.message=="login success !!!"){
-           router.push("./home");
+          //  router.push("./home");
+          router.push(
+             './home',
+            {query: { data: 'yourDataValue' },
+          });
         }
       }else{
         alert("Please fill Up !!!")

@@ -46,6 +46,9 @@ function SignUp() {
 
   return (
     <div className={style.container}>
+    { 
+      session.status? "loading...":null
+    }
       <div className={style.conreal}>
        {
         session.status=="authenticated"?  <div className={style.imgt}>

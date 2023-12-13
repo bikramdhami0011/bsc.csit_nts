@@ -1,11 +1,28 @@
+"use client"
 import React from "react";
 import style from "./page.module.css"
+import { useSession } from "next-auth/react";
 function About() {
+  let session=useSession();
   return (
     <div>
       <div>
         <main>
-          <div className={style.container}>
+          <div className={style.container} >
+          {
+            session.status=="authenticated"? <div>
+              <h2>About Sign Up Student !!!</h2>
+             <p>Email: {session.data.user.email}</p>
+             <p>Name: {session.data.user.name}</p>
+          
+             <img
+             src={`${session.data.user.image}`}
+             height={200}
+             width={200}
+             style={{ backgroundColor: "white" ,borderRadius:"100px",margin:"10px 0px"}}
+           ></img>
+            </div>:null
+          }
           <img
           src="https://www.fwu.edu.np/assets/uploads//logo/1626619699-school-front-logo.png"
           height={100}

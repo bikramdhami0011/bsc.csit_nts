@@ -14,7 +14,7 @@ function Home() {
  setInterval(()=>{
   const cl=BgCh() 
   setcolor(cl)
- },5000);
+ },3000);
 //  
 
 

@@ -8,6 +8,7 @@ import style from "./page.module.css"
 import { Provider } from 'react-redux'
 import store from './Redux/Store'
 import AuthProvider from '@/component/Authprovider/AuthProvider'
+import { useSession } from 'next-auth/react'
 
 const inter = Inter({ subsets: ['latin'] })
 
@@ -28,7 +29,9 @@ export default function RootLayout({ children }) {
 
       <Navbar></Navbar>
       </div>
+     {
       
+     }
       {children}
        <footer>
          <Fotter></Fotter>

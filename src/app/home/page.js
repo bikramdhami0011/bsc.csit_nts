@@ -1,8 +1,16 @@
-import React from "react";
+"use client"
+import React, { useEffect } from "react";
 import style from "./page.module.css";
 import Link from "next/link";
+import { useSession } from "next-auth/react";
 function Home() {
-  
+  let session=useSession();
+ 
+ const BgCh=()=>{
+   return "#"+Math.floor(Math.random()*10661110234).toString(16);
+ }
+ 
+   setInterval(BgCh,2000)
   return (
     <div>
       <div className={style.sethome}>
@@ -17,6 +25,9 @@ function Home() {
         <main>
           <div className="show">
             <div>
+               {
+                session.status=="authenticated"? <marquee > <h1 id="h1" style={{color:`${BgCh()}`}}>Welcome  {session.data.user.name} </h1></marquee>:null
+               }
               <h2>Bsc.Csit Subject Code</h2>
               <div className={style.subcode}>
                 <Link className={style.sem} href="/home/subcode/1" style={{cursor:"pointer"}}> semester 1</Link>

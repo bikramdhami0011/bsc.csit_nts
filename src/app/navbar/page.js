@@ -4,8 +4,11 @@
 import  {useEffect, useState} from "react"; 
 import style from "./page.module.css";
 import Link from "next/link";
+import { signOut, useSession } from "next-auth/react";
 function Navbar() {
   const [show,setshow]=useState();
+  const session=useSession();
+  console.log(session);
 //  useEffect(()=>{
 //   const FetchData=async()=>{
 //       const getdata=await fetch("/api",{
@@ -100,7 +103,11 @@ const HideNav=()=>{
 
    <div className={style.right}>
      <div className={style.setsl}>
-       <Link href={"/login"} className={style.signup} style={{backgroundColor:"rgb(0,0,46)"}}>Log In</Link>
+       {
+        session.status=="authenticated"?      <Link  href={"/login"} className={style.signup} style={{backgroundColor:"rgb(0,0,46)"}} onClick={()=>{
+          signOut("google");
+        }}>Log Out</Link>:  <Link href={"/login"} className={style.signup} style={{backgroundColor:"rgb(0,0,46)"}}>Log In</Link>
+       }
        <Link href={"/signup"} className={style.login} style={{backgroundColor:"rgb(0,0,46)"}}>Sign Up</Link>
      </div>
    </div>

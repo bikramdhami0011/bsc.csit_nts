@@ -4,8 +4,10 @@ import React, { useState } from "react";
 import style from "./page.module.css";
 
 import { useRouter } from "next/navigation";
+import { signIn, useSession } from "next-auth/react";
 
 function LogIn() {
+  const session=useSession()
   const [img, setimg] = useState(true);
   const [email, setemail] = useState("");
   const [password, setpassword] = useState("");
@@ -45,17 +47,29 @@ function LogIn() {
   return (
     <div className={style.container}>
       <div className={style.conreal}>
-        <div className={style.imgt}>
-          <div>
-            <img
-              src="https://avatars.githubusercontent.com/u/133209135?s=96&v=4"
-              height={60}
-              width={60}
-              style={{ borderRadius: "30px" }}
-            ></img>
-          </div>
-          <div> Welcome Students !!!</div>
+       {
+        session.status=="authenticated"?  <div className={style.imgt}>
+        <div>
+          <img
+            src={session.data.user.image}
+            height={60}
+            width={60}
+            style={{ borderRadius: "30px" }}
+          ></img>
         </div>
+        <div> Welcome {session.data.user.name+" "} !!!</div>
+      </div>:  <div className={style.imgt}>
+      <div>
+        <img
+          src="https://avatars.githubusercontent.com/u/133209135?s=96&v=4"
+          height={60}
+          width={60}
+          style={{ borderRadius: "30px" }}
+        ></img>
+      </div>
+      <div> Welcome Students !!!</div>
+    </div>
+       }
         <div className={style.inputdiv}>
           <div className={style.settext}>Email Address</div>
           <input
@@ -144,7 +158,7 @@ function LogIn() {
           <div> OR LOGIN WITH EMAIL</div>
           <div className={style.line}></div>
         </div>
-        <div className={style.google} style={{ cursor: "pointer" }}>
+        <div className={style.google} style={{ cursor: "pointer" }} onClick={()=>signIn("google")}>
           <a style={{ height: "20px", width: "20px" }}>
             <svg
               version="1.1"

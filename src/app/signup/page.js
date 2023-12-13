@@ -47,17 +47,29 @@ function SignUp() {
   return (
     <div className={style.container}>
       <div className={style.conreal}>
-        <div className={style.imgt}>
-          <div>
-            <img
-              src="https://avatars.githubusercontent.com/u/133209135?s=96&v=4"
-              height={60}
-              width={60}
-              style={{ borderRadius: "30px" }}
-            ></img>
-          </div>
-          <div> Please Sign Up !!!</div>
+       {
+        session.status=="authenticated"?  <div className={style.imgt}>
+        <div>
+          <img
+            src={session.data.user.image}
+            height={60}
+            width={60}
+            style={{ borderRadius: "30px" }}
+          ></img>
         </div>
+        <div> Successfully Sign Up !!!</div>
+      </div>: <div className={style.imgt}>
+      <div>
+        <img
+          src="https://avatars.githubusercontent.com/u/133209135?s=96&v=4"
+          height={60}
+          width={60}
+          style={{ borderRadius: "30px" }}
+        ></img>
+      </div>
+      <div> Please Sign Up !!!</div>
+    </div>
+       }
         <div className={style.inputdiv}>
           <div className={style.settext}>Email Address</div>
           <input
